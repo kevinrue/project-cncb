@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=10G
-#SBATCH --partition=long
+#SBATCH --partition=short
 
 # Environment:
 #SBATCH --export=NONE
