@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Resources:
+#SBATCH --time=0-02:00:00  # DAYS-HOURS:MINUTES:SECONDS
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=12
+#SBATCH --mem=10G
+#SBATCH --partition=long
+
+# Environment:
+#SBATCH --export=NONE
+
+# What to run:
+module load samtools/1.17
+
+cd /ceph/project/cncb/albrecht
+
+samtools view -@ 12 -bo genome_sequencing/aln-pe.bam genome_sequencing/aln-pe.sam
