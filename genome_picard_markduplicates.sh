@@ -22,7 +22,7 @@ cd /ceph/project/cncb/albrecht
 MarkDuplicates \
   -INPUT genome_sequencing/aln-pe.rg.bam \
   -OUTPUT genome_sequencing/aln-pe.rg.dedup.bam \
-  -METRICS_FILE genome_sequencing/aln-pe.rg.dedup..metrics.txt \
+  -METRICS_FILE genome_sequencing/aln-pe.rg.dedup.metrics.txt \
   -VALIDATION_STRINGENCY SILENT \
   -OPTICAL_DUPLICATE_PIXEL_DISTANCE 2500 \
   -ASSUME_SORT_ORDER "queryname" \

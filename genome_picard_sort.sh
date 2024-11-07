@@ -20,8 +20,8 @@ cd /ceph/project/cncb/albrecht
 
 # see <https://github.com/gatk-workflows/broad-prod-wgs-germline-snps-indels/blob/master/PairedEndSingleSampleWf-fc-hg38.wdl#L761>
 SortSam \
-  -INPUT genome_sequencing/aln-pe.bam \
-  -OUTPUT genome_sequencing/aln-pe.sorted.bam \
+  -INPUT genome_sequencing/aln-pe.rg.dedup.bam \
+  -OUTPUT genome_sequencing/aln-pe.rg.dedup.sorted.bam \
   -SORT_ORDER coordinate \
   -CREATE_INDEX true \
   -CREATE_MD5_FILE true \
