@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Resources:
-#SBATCH --time=0-12:00:00  # DAYS-HOURS:MINUTES:SECONDS
+#SBATCH --time=0-00:05:00  # DAYS-HOURS:MINUTES:SECONDS
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=5G
 #SBATCH --partition=short
-#SBATCH --job-name=gatk_haplotypecaller_3L
-#SBATCH --output=genome_gatk_haplotypecaller_3L.%j.out
-#SBATCH --error=genome_gatk_haplotypecaller_3L.%j.err
+#SBATCH --job-name=gatk_merge_gvcfs
+#SBATCH --output=genome_gatk_merge_gvcfs.%j.out
+#SBATCH --error=genome_gatk_merge_gvcfs.%j.err
 
 # Environment:
 #SBATCH --export=NONE
@@ -23,12 +23,12 @@ intervals=(2L 2R 3L 3R 4 mitochondrion_genome X Y)
 
 input_files=""
 for interval in ${intervals[@]}; do
-    input_files += "-I genome_sequencing/aln-pe.rg.dedup.sorted.${interval}.gvcf "
+    input_files+="-I genome_sequencing/aln-pe.rg.dedup.sorted.${interval}.gvcf "
 done
 
 gatk SortVcf \
-     ${input_files} \
-     -O genome_sequencing/aln-pe.rg.dedup.sorted.all.gvcf
+     $input_files \
+     -O genome_sequencing/aln-pe.rg.dedup.sorted.all.g.vcf.gz
 
 ## The manual way:
 # gatk SortVcf \
